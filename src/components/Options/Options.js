@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
 import Option from './Option/Option';
+import React from 'react';
 
-class Options extends Component {
-  render() {
-    return (
-      <div>
-        <h3>Options </h3>
-        <Option />
-      </div>
-    );
-  }
-}
+const Options = (props) => {
+  return (
+    <div>
+      <h3>Options </h3>
+      {props.options.map((e) => (
+        <Option key={e} text={e}></Option>
+      ))}
+      <button onClick={props.handleDeleteOptions} disabled={!props.hasOptions}>
+        Remove All
+      </button>
+    </div>
+  );
+};
 
 export default Options;
